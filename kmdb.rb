@@ -82,6 +82,8 @@ Role.destroy_all
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
+#People
+
 new_person = Person.new
 new_person.name = "Christian Bale"
 new_person.save
@@ -130,11 +132,10 @@ new_person = Person.new
 new_person.name = "Anne Hathaway"
 new_person.save
 
-#director = Person.where({name: "Christopher Nolan"})[0]
+#Set Director
 director = Person.where({name: "Christopher Nolan"})[0]
 
-#director_id = director.read_attribute(:id)
-#puts "#{director_id}"
+#Movies
 
 new_movie = Movie.new
 new_movie.title = "Batman Begins"
