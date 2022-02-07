@@ -106,8 +106,7 @@ new_person = Person.new
 new_person.name = "Christopher Nolan"
 new_person.save
 
-director = Person.where({name: "Christopher Nolan"})[0]
-director_id = director.id
+director_id = Person.where({name: "Christopher Nolan"})[0]
 
 new_movie = Movie.new
 new_movie.title = "Batman Begins"
@@ -212,10 +211,12 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output
 # TODO!
+movies = Movie.all
 
 for movie in movies
     puts "#{movie.title} #{movie.year_released} #{movie.rated} #{movie.person_id}"
 end
+
 # Prints a header for the cast output
 puts ""
 puts "Top Cast"
@@ -224,10 +225,12 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
+roles = Role.all
 
 for movie in movies
 
     for role in roles
     puts "#{movie.title} #{person.name} #{roles.character_name}"
     end
+    
 end
