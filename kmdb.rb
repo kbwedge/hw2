@@ -227,8 +227,7 @@ puts ""
 
 for movie in movies
 
-    for person in people
-        role = person.where({name: "Batman Begins"})[0]
-        bale_id = bale.id
-    puts "#{movie.title} #{person.name} #{movie.rated} #{movie.person_id}"
+    for role in roles
+    puts "#{movie.title} #{person.name} #{roles.character_name}"
+    end
 end
