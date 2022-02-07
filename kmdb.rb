@@ -106,27 +106,31 @@ new_person = Person.new
 new_person.name = "Christopher Nolan"
 new_person.save
 
-director_id = Person.where({name: "Christopher Nolan"})[0]
+#director = Person.where({name: "Christopher Nolan"})[0]
+director = Person.where({name: "Christopher Nolan"})[0]
+
+#director_id = director.read_attribute(:id)
+#puts "#{director_id}"
 
 new_movie = Movie.new
 new_movie.title = "Batman Begins"
 new_movie.year_released = "2005"
 new_movie.rated = "PG-13"
-new_movie.person_id = director_id
+new_movie.person_id = director.id
 new_movie.save
 
 new_movie = Movie.new
 new_movie.title = "The Dark Knight"
 new_movie.year_released = "2008"
 new_movie.rated = "PG-13"
-new_movie.person_id = director_id
+new_movie.person_id = director.id
 new_movie.save
 
 new_movie = Movie.new
 new_movie.title = "The Dark Knight Rises"
 new_movie.year_released = "2012"
 new_movie.rated = "PG-13"
-new_movie.person_id = director_id
+new_movie.person_id = director.id
 new_movie.save
 
 new_role = Role.new
@@ -214,7 +218,8 @@ puts ""
 movies = Movie.all
 
 for movie in movies
-    puts "#{movie.title} #{movie.year_released} #{movie.rated} #{movie.person_id}"
+    person = Person.where(id: movie.person_id)[0]
+    puts "#{movie.title} #{movie.year_released} #{movie.rated} #{person.name}"
 end
 
 # Prints a header for the cast output
@@ -225,12 +230,12 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
-roles = Role.all
 
 for movie in movies
-
+    roles = Role.where(id: movie.id)
+    person = Person.where(id: movie.person_id)[0]
     for role in roles
-    puts "#{movie.title} #{person.name} #{roles.character_name}"
+        #puts "#{movie.title} #{person.name} #{role.character_name}"
+        puts "#{role.character_name}"
     end
-    
 end
