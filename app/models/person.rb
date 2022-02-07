@@ -1,3 +1,2 @@
 class Person < ApplicationRecord
-
 end

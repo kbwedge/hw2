@@ -106,6 +106,30 @@ new_person = Person.new
 new_person.name = "Christopher Nolan"
 new_person.save
 
+new_person = Person.new
+new_person.name = "Heath Leger"
+new_person.save
+
+new_person = Person.new
+new_person.name = "Aaron Eckhart"
+new_person.save
+
+new_person = Person.new
+new_person.name = "Maggie Gyllenhaal"
+new_person.save
+
+new_person = Person.new
+new_person.name = "Tom Hardy"
+new_person.save
+
+new_person = Person.new
+new_person.name = "Joseph Gordon-Levitt"
+new_person.save
+
+new_person = Person.new
+new_person.name = "Anne Hathaway"
+new_person.save
+
 #director = Person.where({name: "Christopher Nolan"})[0]
 director = Person.where({name: "Christopher Nolan"})[0]
 
@@ -133,6 +157,7 @@ new_movie.rated = "PG-13"
 new_movie.person_id = director.id
 new_movie.save
 
+#Roles
 new_role = Role.new
 new_role.character_name = "Bruce Wayne"
 new_role.person_id = Person.where({name:"Christian Bale"})[0]
@@ -231,11 +256,17 @@ puts ""
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
 
-for movie in movies
-    roles = Role.where(id: movie.id)
-    person = Person.where(id: movie.person_id)[0]
-    for role in roles
+#for movie in movies
+   
+    #person = Person.where(id: movie.person_id)[0]
+puts "#{Role.all.count}"
+puts "#{Movie.all.count}"
+puts "#{Person.all.count}"
+
+    #roles = Role.all
+ #   for role in roles
+  #      puts "test"
+        #person = Person.where(id: role.person_id)[0]
         #puts "#{movie.title} #{person.name} #{role.character_name}"
-        puts "#{role.character_name}"
-    end
-end
+   # end
+#end
