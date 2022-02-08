@@ -309,7 +309,6 @@ puts ""
 # TODO!
 
 for movie in movies
-    #person = Person.where(id: movie.person_id)[0]
     roles = Role.where(movie_id: movie.id)
     for role in roles
         person = Person.where(id: role.person_id)[0]
